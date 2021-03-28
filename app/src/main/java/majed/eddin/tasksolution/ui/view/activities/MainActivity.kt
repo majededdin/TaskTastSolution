@@ -18,7 +18,7 @@ class MainActivity : BaseActivity<ArticlesViewModel>() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var restaurantsVM: ArticlesViewModel
+    private lateinit var articlesVM: ArticlesViewModel
 
     private lateinit var adapter: ArticlesAdapter
     private var apiResponse: ApiResponse<Result> = ApiResponse()
@@ -28,7 +28,7 @@ class MainActivity : BaseActivity<ArticlesViewModel>() {
 
 
     override fun viewModelInstance(viewModel: ArticlesViewModel?) {
-        restaurantsVM = viewModel!!
+        articlesVM = viewModel!!
     }
 
 
@@ -40,7 +40,7 @@ class MainActivity : BaseActivity<ArticlesViewModel>() {
         viewInit()
         updateView()
 
-        restaurantsVM.articlesListResult.observe(this, this::restaurantsListResult)
+        articlesVM.articlesListResult.observe(this, this::restaurantsListResult)
     }
 
 
@@ -48,7 +48,7 @@ class MainActivity : BaseActivity<ArticlesViewModel>() {
         apiResponse.listOfModel.clear()
         adapter.clear()
 
-        restaurantsVM.getArticlesIndex()
+        articlesVM.getArticlesIndex()
     }
 
 
